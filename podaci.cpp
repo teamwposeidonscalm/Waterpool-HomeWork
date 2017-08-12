@@ -28,7 +28,7 @@ podaci::podaci(QWidget *parent) :
 
 
     //BOJA BUTTON-A
-    ui->pushButton->setStyleSheet("background-color: red; color: white");
+  ui->pushButton->setStyleSheet("background-color: red; color: white");
     ui->save->setStyleSheet("background-color: lightgreen; color: black");
 
 }
@@ -43,19 +43,21 @@ podaci::~podaci()
 }
 
 
- void podaci::setPodaciIme(QString ime,QList<QString>poeni) {
-ui->podaciIme->setText(ime);
-Poen=poeni;
+ void podaci::setPodaciIme(QString ime,QString tim) {
+ui->namePlayer->setText(ime);
+ui->timName->setText(tim);
  }
-//Vrsi  upisivanje podataka o igracu u fajl
+
+ //Vrsi  upisivanje podataka o igracu u fajl
 void podaci::on_save_clicked()
 {
+
     //Provjera da li su popunjeni svi podaci
-    if(ui->podaciIme->text().isEmpty() || ui->lineEdit_2->text().isEmpty() || ui->lineEdit_2->text().isEmpty())
+    if(ui->namePlayer->text().isEmpty() || ui->lineEdit_2->text().isEmpty()|| ui->lineEdit_3->text().isEmpty() )
     {
 
-        QMessageBox::warning(this,"Info","Popunite prazna mjesta");
-        ui->save->setDisabled(true);
+        QMessageBox::warning(this,"Info","Popunite podatke");
+
 
     }
 
@@ -67,33 +69,13 @@ void podaci::on_save_clicked()
 
     QFile file(nazivFajla);
 //Dohvatanje podatke iz input field
-    QString ime = ui->podaciIme->text();
-    QString naziv_tima = ui->lineEdit_2->text();
+    QString ime = ui->namePlayer->text();
+    QString gol = ui->lineEdit_2->text();
     QString godine = ui->lineEdit_3->text();
-
-    QDate datum=getDatum();
+      QDate datum=getDatum();
+   QString datumString= datum.toString("dd.MM.yyyy");
+ZaTeren.push_back(igrac(ime,"tim",godine,datumString, gol));
 //Vrsi konvertovanje dohvacenog datuma iz tipa QDate u QString
-    QString datumString= datum.toString("dd.MM.yyyy");
-
-    QString set1=Poen[0];
-    QString set2=Poen[1];
-    QString set3=Poen[2];
-
-//Kreirani objekat tipa igrac
-    igrac teniser(ime,naziv_tima,godine,datumString,set1,set2,set3);
-//Smjesta tenisere u listu za teren
-    ZaTeren.push_back(teniser);
-
-
-    if (file.open(QIODevice::ReadWrite | QIODevice::Text | QIODevice::Append) )
-    {
-    QTextStream stream(&file);
-//Ubacuje podatke u tekstualni fajl
-    stream <<"Ime:" + ime + "|"   "Naziv tima:" + naziv_tima + "|"   "Godine:" + godine + "|"  "Datum:" + datumString+"|"<<"Set1: "+set1+"|"<<"Set2: "+set2+"|"<<"Set3: "+set3+"|"<<endl;
-    QMessageBox::information(this,"Info","Vaši podaci su  snimljeni u fajl!");
-
-}
-
 
 
     QMessageBox MessageBox;
@@ -107,11 +89,11 @@ void podaci::on_save_clicked()
     if (MessageBox.clickedButton()==otvoriFajl) {
         QDesktopServices::openUrl(QUrl("savePodaci.txt", QUrl::TolerantMode));
 }
-    ime.clear();
+   /* ime.clear();
     naziv_tima.clear();
     godine.clear();
     datumString.clear();
-
+*/
     close();
     }
 

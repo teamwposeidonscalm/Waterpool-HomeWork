@@ -8,22 +8,20 @@ class igrac
 
 
 public:
-    explicit igrac( QString _ime, QString _tim, QString _godine, QString _date, QString _prviset, QString _drugiset, QString _treciset);
+    explicit igrac( QString _ime, QString _tim, QString _godine, QString _date, QString _gol);
      QString getIme();
      QString getTim();
      QString getGodine();
      QString getDate();
-     QString getPrviSet();
-     QString getDrugiSet();
-     QString getTreciSet();
+     QString getGol();
+
 private :
     QString ime;
     QString tim;
     QString godine;
     QString date;
-    QString prviset;
-    QString drugiset;
-    QString treciset;
+    QString gol;
+
 
 
 signals:

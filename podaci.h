@@ -17,7 +17,7 @@ class podaci : public QDialog
 
 public:
     explicit podaci(QWidget *parent = 0);
-    void setPodaciIme(QString ime,QList<QString>poen);
+    void setPodaciIme(QString ime, QString tim);
 
     ~podaci();
 

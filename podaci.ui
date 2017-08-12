@@ -18,8 +18,8 @@
     <rect>
      <x>130</x>
      <y>160</y>
-     <width>47</width>
-     <height>16</height>
+     <width>71</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
@@ -29,7 +29,7 @@
     </font>
    </property>
    <property name="text">
-    <string>IME</string>
+    <string>IME IGRAČA</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -48,7 +48,7 @@
     </font>
    </property>
    <property name="text">
-    <string>NAZIV TIMA</string>
+    <string>GOL</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -68,16 +68,6 @@
    </property>
    <property name="text">
     <string>GODINE</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="podaciIme">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>160</y>
-     <width>121</width>
-     <height>20</height>
-    </rect>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_2">
@@ -145,6 +135,45 @@
      <y>20</y>
      <width>301</width>
      <height>101</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="namePlayer">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>160</y>
+     <width>161</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>290</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>EKIPA</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="timName">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>290</y>
+     <width>47</width>
+     <height>13</height>
     </rect>
    </property>
    <property name="text">

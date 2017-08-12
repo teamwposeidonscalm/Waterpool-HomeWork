@@ -120,7 +120,7 @@ statistika::~statistika()
 //PRIKAZ SCENE I LOPTICA NA TERENU
 int statistika::on_pushButton_3_clicked()
 {
-
+/*
 if(Popunjeno.size()==4){
 
     scene = new QGraphicsScene();
@@ -426,42 +426,45 @@ else {
     QMessageBox :: information(this, "PAŽNJA","Nije sve popunjeno \nPopunite prazna polja");
 }
 
-
+*/
 }
 
 //POENI
 QList<QString> statistika::getPoeniPrviIgrac(){
 //metod za dohvatanje poena iz input fielda i smjestanje u listu
     QList<QString>PoeniPrviIgrac;
+/**
 QString poen=ui->prviSetIgrac1->text();
 PoeniPrviIgrac.push_back(poen);
 poen=ui->drugiSetIgrac1->text();
 PoeniPrviIgrac.push_back(poen);
 poen=ui->treciSetIgrac1->text();
-PoeniPrviIgrac.push_back(poen);
+PoeniPrviIgrac.push_back(poen);*/
 return PoeniPrviIgrac;
 }
 
 
 QList<QString> statistika::getPoeniDrugiIgrac(){
     QList<QString>PoeniDrugiIgrac;
+    /*
 QString poen=ui->prviSetIgrac2->text();
 PoeniDrugiIgrac.push_back(poen);
 poen=ui->drugiSetIgrac2->text();
 PoeniDrugiIgrac.push_back(poen);
 poen=ui->treciSetIgrac2->text();
-PoeniDrugiIgrac.push_back(poen);
+PoeniDrugiIgrac.push_back(poen);*/
 return PoeniDrugiIgrac;
 }
 
 QList<QString> statistika::getPoeniTreciIgrac(){
     QList<QString>PoeniTreciIgrac;
+    /*
 QString poen=ui->prviSetIgrac3->text();
 PoeniTreciIgrac.push_back(poen);
 poen=ui->drugiSetIgrac3->text();
 PoeniTreciIgrac.push_back(poen);
 poen=ui->treciSetIgrac3->text();
-PoeniTreciIgrac.push_back(poen);
+PoeniTreciIgrac.push_back(poen);*/
 return PoeniTreciIgrac;
 
 }
@@ -469,12 +472,13 @@ return PoeniTreciIgrac;
 QList<QString> statistika::getPoeniCetvrtiIgrac(){
       datumMeca=ui->mojDate->date();
     QList<QString>PoeniCetvrtiIgrac;
+    /*
 QString poen=ui->prviSetIgrac4->text();
 PoeniCetvrtiIgrac.push_back(poen);
 poen=ui->drugiSetIgrac4->text();
 PoeniCetvrtiIgrac.push_back(poen);
 poen=ui->treciSetIgrac4->text();
-PoeniCetvrtiIgrac.push_back(poen);
+PoeniCetvrtiIgrac.push_back(poen);*/
 return PoeniCetvrtiIgrac;
 }
 
@@ -527,11 +531,119 @@ if(t==2){ //treci set
     close();
 
 }
+void statistika::on_pushButton_2_clicked()
+{
+    podaci podaci;
+    QString name= ui->comboBox->currentText();
+    if(name!="") {
+    podaci.setPodaciIme(name,"Tim1");
+       podaci.setModal(true);
+       podaci.exec();
+    } else {
+           QMessageBox::warning(this,"Info","Niste odabrali igrača");
+   }
+}
+
+void statistika::on_pushButton_4_clicked()
+{
+    podaci podaci;
+    QString name= ui->comboBox_2->currentText();
+    if(name!="") {
+    podaci.setPodaciIme(name,"Tim1");
+       podaci.setModal(true);
+       podaci.exec();
+    } else {
+           QMessageBox::warning(this,"Info","Niste odabrali igrača");
+   }
+
+}
+void statistika::on_pushButton_5_clicked()
+{
+    podaci podaci;
+    QString name= ui->comboBox_3->currentText();
+    if(name!="") {
+    podaci.setPodaciIme(name,"Tim1");
+       podaci.setModal(true);
+       podaci.exec();
+    } else {
+           QMessageBox::warning(this,"Info","Niste odabrali igrača");
+   }
+
+}
+void statistika::on_pushButton_6_clicked()
+{
+    podaci podaci;
+    QString name= ui->comboBox_4->currentText();
+    if(name!="") {
+    podaci.setPodaciIme(name,"Tim1");
+       podaci.setModal(true);
+       podaci.exec();
+    } else {
+           QMessageBox::warning(this,"Info","Niste odabrali igrača");
+   }
+
+}
+
+
+void statistika::on_pushButton_7_clicked()
+{
+    podaci podaci;
+    QString name= ui->comboBox_5->currentText();
+    if(name!="") {
+    podaci.setPodaciIme(name,"Tim1");
+       podaci.setModal(true);
+       podaci.exec();
+    } else {
+           QMessageBox::warning(this,"Info","Niste odabrali igrača");
+   }
+
+}
+
+
+void statistika::on_pushButton_8_clicked()
+{
+    podaci podaci;
+    QString name= ui->comboBox_6->currentText();
+    if(name!="") {
+    podaci.setPodaciIme(name,"Tim1");
+       podaci.setModal(true);
+       podaci.exec();
+    } else {
+           QMessageBox::warning(this,"Info","Niste odabrali igrača");
+   }
+
+}
+
+void statistika::on_pushButton_9_clicked()
+{
+    podaci podaci;
+    QString name= ui->comboBox_7->currentText();
+    if(name!="") {
+    podaci.setPodaciIme(name,"Tim1");
+       podaci.setModal(true);
+       podaci.exec();
+    } else {
+           QMessageBox::warning(this,"Info","Niste odabrali igrača");
+   }
+
+}
+
+void statistika::ucitajDijalogIgrace(QList<igrac> a){
+    podaci podaci;
+    QString name= ui->comboBox_5->currentText();
+    if(name!="") {
+    podaci.setPodaciIme(name,"Tim1");
+       podaci.setModal(true);
+       podaci.exec();
+    } else {
+           QMessageBox::warning(this,"Info","Niste odabrali igrača");
+   }
+}
 
 //OTVARA FILE DIALOG
 void statistika::on_pushButton_clicked()
 {
-    QList<igrac>probni;
+    /*QList<igrac>probni;
     QString Fileime=QFileDialog::getOpenFileName(
                 this,
                 tr("Open File"),
@@ -542,188 +654,14 @@ void statistika::on_pushButton_clicked()
 fajl=1;//setujemo varijablu fajl=1 ako u fajlu ima podataka te ce se podaci na sceni ucitavati iz fajla
   probni=procitajStatistiku(Fileime); //parsira sve podatke iz fajla ipripremi ih u listu igraca
 
-  ucitajDijalogIgrace(probni); //sve podatke iz fajla popuni u input fieldovima
+ // ucitajDijalogIgrace(probni); //sve podatke iz fajla popuni u input fieldovima
   QMessageBox::information(this,"File Name",Fileime);
 igraciZaTeren=probni;
 
-   }
-
-}
-
-//UČITAVA IGRAČE I POENE
-void statistika::ucitajDijalogIgrace(QList<igrac>probni){
-
-
-QString Igrac1=probni[0].getIme();
-ui->comboBox->setItemText(0,Igrac1);
-ui->comboBox->setCurrentIndex(0);
-
-QString Set1Igrac1=probni[0].getPrviSet().replace("Set1:","");
-ui->prviSetIgrac1->setText(Set1Igrac1);
-QString Set2Igrac1=probni[0].getDrugiSet().replace("Set2:","");
-ui->drugiSetIgrac1->setText(Set2Igrac1);
-QString Set3Igrac1=probni[0].getTreciSet().replace("Set3:","");
-ui->treciSetIgrac1->setText(Set3Igrac1);
-
-
-
-QString Igrac2=probni[1].getIme();
-ui->comboBox_2->setItemText(1,Igrac2);
-ui->comboBox_2->setCurrentIndex(1);
-
-QString Set1Igrac2=probni[1].getPrviSet().replace("Set1:","");
-ui->prviSetIgrac2->setText(Set1Igrac2);
-QString Set2Igrac2=probni[1].getDrugiSet().replace("Set2:","");
-ui->drugiSetIgrac2->setText(Set2Igrac2);
-QString Set3Igrac2=probni[1].getTreciSet().replace("Set3:","");
-ui->treciSetIgrac2->setText(Set3Igrac2);
-
-
-
-QString Igrac3=probni[2].getIme();
-ui->comboBox_3->setItemText(2,Igrac3);
-ui->comboBox_3->setCurrentIndex(2);
-
-QString Set1Igrac3=probni[2].getPrviSet().replace("Set1:","");
-ui->prviSetIgrac3->setText(Set1Igrac3);
-QString Set2Igrac3=probni[2].getDrugiSet().replace("Set2:","");
-ui->drugiSetIgrac3->setText(Set2Igrac3);
-QString Set3Igrac3=probni[2].getTreciSet().replace("Set3:","");
-ui->treciSetIgrac3->setText(Set3Igrac3);
-
-
-
-QString Igrac4=probni[3].getIme();
-ui->comboBox_4->setItemText(3,Igrac4);
-ui->comboBox_4->setCurrentIndex(3);
-
-QString Set1Igrac4=probni[3].getPrviSet().replace("Set1:","");
-ui->prviSetIgrac4->setText(Set1Igrac4);
-QString Set2Igrac4=probni[3].getDrugiSet().replace("Set2:","");
-ui->drugiSetIgrac4->setText(Set2Igrac4);
-QString Set3Igrac4=probni[3].getTreciSet().replace("Set3:","");
-ui->treciSetIgrac4->setText(Set3Igrac4);
-
+   }*/
 }
 
 
-//PROVJERAVA DA LI SU UNESENI ISTI IGRAČI
-void statistika::on_pushButton_2_clicked()
-{
-    if (ui->comboBox->currentText().isEmpty() || ui->comboBox_2->currentText().isEmpty() || ui->comboBox_3->currentText().isEmpty() ||
-            ui->comboBox_4->currentText().isEmpty()){
-        QMessageBox::information(this,"PAŽNJA","Niste odabrali 4 igrača. \nOdaberite 4 igrača za igru.");
-    }
-    else
-
-    if(ui->comboBox->currentText() == ui->comboBox_2->currentText() || ui->comboBox->currentText()== ui->comboBox_3->currentText() ||
-            ui->comboBox->currentText()== ui->comboBox_4->currentText() || ui->comboBox_2->currentText()== ui->comboBox_3->currentText() ||
-            ui->comboBox_2->currentText() == ui->comboBox_4->currentText() || ui->comboBox_3->currentText()== ui->comboBox_4->currentText()){
-        QMessageBox::information(this, "PAŽNJA","Odabrali ste istog igrača više puta .\nOdaberite drugog igrača.");
-
-}
-    else
-        {
-
-
-    Popunjeno.push_back(1);
-    podaci podaci;
-    QString imeIgraca=getImeIgrac1();
-    QList<QString>poen=getPoeniPrviIgrac();
-    podaci.setPodaciIme(imeIgraca,poen);
-    podaci.setModal(true);
-    podaci.exec();
-}
-
-
-}
-
-//PROVJERAVA DA LI SU UNESENI ISTI IGRAČI
-void statistika::on_pushButton_4_clicked()
-{
-    if (ui->comboBox->currentText().isEmpty() || ui->comboBox_2->currentText().isEmpty() || ui->comboBox_3->currentText().isEmpty() ||
-            ui->comboBox_4->currentText().isEmpty()){
-        QMessageBox::information(this,"PAŽNJA","Niste odabrali 4 igrača. \nOdaberite 4 igrača za igru.");
-    }
-    else
-
-    if(ui->comboBox->currentText() == ui->comboBox_2->currentText() || ui->comboBox->currentText()== ui->comboBox_3->currentText() ||
-            ui->comboBox->currentText()== ui->comboBox_4->currentText() || ui->comboBox_2->currentText()== ui->comboBox_3->currentText() ||
-            ui->comboBox_2->currentText() == ui->comboBox_4->currentText() || ui->comboBox_3->currentText()== ui->comboBox_4->currentText()){
-        QMessageBox::information(this, "PAŽNJA","Odabrali ste istog igrača više puta .\nOdaberite drugog igrača.");
-
-}
-    else
-
-
-    Popunjeno.push_back(1);
-    podaci podaci;
-    QString imeIgraca=getImeIgrac2();
-    QList<QString>poen=getPoeniDrugiIgrac();
-    podaci.setPodaciIme(imeIgraca,poen);
-    podaci.setModal(true);
-    podaci.exec();
-
-  //  }
-}
-
-//PROVJERAVA DA LI SU UNESENI ISTI IGRAČI
-void statistika::on_pushButton_5_clicked()
-{
-    if (ui->comboBox->currentText().isEmpty() || ui->comboBox_2->currentText().isEmpty() || ui->comboBox_3->currentText().isEmpty() ||
-            ui->comboBox_4->currentText().isEmpty()){
-        QMessageBox::information(this,"PAŽNJA","Niste odabrali 4 igrača. \nOdaberite 4 igrača za igru.");
-    }
-    else
-
-    if(ui->comboBox->currentText() == ui->comboBox_2->currentText() || ui->comboBox->currentText()== ui->comboBox_3->currentText() ||
-            ui->comboBox->currentText()== ui->comboBox_4->currentText() || ui->comboBox_2->currentText()== ui->comboBox_3->currentText() ||
-            ui->comboBox_2->currentText() == ui->comboBox_4->currentText() || ui->comboBox_3->currentText()== ui->comboBox_4->currentText()){
-        QMessageBox::information(this, "PAŽNJA","Odabrali ste istog igrača više puta .\nOdaberite drugog igrača.");
-
-}
-    else
-        {
-
-    Popunjeno.push_back(1);
-    podaci podaci;
-    QString imeIgraca=getImeIgrac3();
-    QList<QString>poen=getPoeniTreciIgrac();
-    podaci.setPodaciIme(imeIgraca,poen);
-    podaci.setModal(true);
-    podaci.exec();
-
-    }
-}
-
-//PROVJERAVA DA LI SU UNESENI ISTI IGRAČI
-void statistika::on_pushButton_6_clicked()
-{
-    if (ui->comboBox->currentText().isEmpty() || ui->comboBox_2->currentText().isEmpty() || ui->comboBox_3->currentText().isEmpty() ||
-            ui->comboBox_4->currentText().isEmpty()){
-        QMessageBox::information(this,"PAŽNJA","Niste odabrali 4 igrača. \nOdaberite 4 igrača za igru.");
-    }
-    else
-
-    if(ui->comboBox->currentText() == ui->comboBox_2->currentText() || ui->comboBox->currentText()== ui->comboBox_3->currentText() ||
-            ui->comboBox->currentText()== ui->comboBox_4->currentText() || ui->comboBox_2->currentText()== ui->comboBox_3->currentText() ||
-            ui->comboBox_2->currentText() == ui->comboBox_4->currentText() || ui->comboBox_3->currentText()== ui->comboBox_4->currentText()){
-        QMessageBox::information(this, "PAŽNJA","Odabrali ste istog igrača više puta .\nOdaberite drugog igrača.");
-
-}
-    else
-        {
-
-    Popunjeno.push_back(1);//za svakog igraca smjestamo u listu popunjeno broj 1 cime se signalizira da je sve uspjesno i korektno popunjeno
-    podaci podaci;
-    QString imeIgraca=getImeIgrac4();
-    QList<QString>poen=getPoeniCetvrtiIgrac();
-    podaci.setPodaciIme(imeIgraca,poen);
-    podaci.setModal(true);
-    podaci.exec();
-
-    }
-}
 
 //GET DATUM
 QDate getDatum(){
@@ -745,11 +683,11 @@ QList<igrac> procitajStatistiku(QString nazivFajla){
 
         QStringList info=line.split('|');
 
-        igrac temp(info[0].replace("Ime:",""),info[1].replace("Naziv tima:",""),info[2].replace("Godine:",""),info[3],info[4],info[5],info[6]);
+     //   igrac temp(info[0].replace("Ime:",""),info[1].replace("Naziv tima:",""),info[2].replace("Godine:",""),info[3],info[4],info[5],info[6]);
 
 
-     ListaIgracaFajl.push_back(temp);
-         Popunjeno.push_back(1);
+   //  ListaIgracaFajl.push_back(temp);
+        // Popunjeno.push_back(1);
     }
 } file.close();
     return ListaIgracaFajl;
