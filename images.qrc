@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/DRES.png</file>
+        <file>images/DRES2.png</file>
+        <file>images/LOPTICA1.png</file>
+        <file>images/LOPTICA2.png</file>
+        <file>images/LOPTICA3.png</file>
+        <file>images/nadal.png</file>
+        <file>images/pozadina.jpg</file>
+        <file>images/REKET.png</file>
+        <file>images/SLOGAN.png</file>
+        <file>slike/kapa1.gif</file>
+        <file>slike/kapa2.gif</file>
+        <file>slike/lopta.png</file>
+        <file>slike/teren.png</file>
+        <file>slike/teren.jpg</file>
+        <file>slike/vaterpolo.png</file>
+        <file>slike/asistencija.png</file>
+    </qresource>
+</RCC>

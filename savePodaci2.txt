@@ -1,0 +1,4 @@
+Ime:Ferrer|Naziv tima:tim1|Godine:23|Datum:|Set1: 12|Set2: 12|Set3: 12|
+Ime:Satana|Naziv tima:tim1|Godine:22|Datum:|Set1: 12|Set2: 12|Set3: 12|
+Ime:Nadal|Naziv tima:tim2|Godine:22|Datum:|Set1: 8|Set2: 12|Set3: 8|
+Ime:Agassi|Naziv tima:tim2|Godine:23|Datum:01.01.2000|Set1: 8|Set2: 4|Set3: 8|

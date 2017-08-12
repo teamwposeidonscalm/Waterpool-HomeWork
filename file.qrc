@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>file/igraci.txt</file>
+        <file>file/savePodaci.txt</file>
+        <file>file/igraci1.txt</file>
+    </qresource>
+</RCC>
