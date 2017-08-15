@@ -70,6 +70,16 @@ statistika::statistika(QWidget *parent):
     ui->comboBox_2->setModel(model);
     ui->comboBox_3->setModel(model);
     ui->comboBox_4->setModel(model);
+    ui->comboBox_5->setModel(model);
+    ui->comboBox_6->setModel(model);
+    ui->comboBox_7->setModel(model);
+    ui->comboBox_8->setModel(model);
+    ui->comboBox_9->setModel(model);
+    ui->comboBox_10->setModel(model);
+    ui->comboBox_11->setModel(model);
+    ui->comboBox_12->setModel(model);
+     ui->comboBox_13->setModel(model);
+      ui->comboBox_14->setModel(model);
 
 
     QStringList list;
@@ -98,6 +108,7 @@ statistika::statistika(QWidget *parent):
 
 //ISPISIVANJE IMENA NA DRES
 void statistika::printImeIgraca(QString ime, int x, int y){
+  if(ime !=""){
     QGraphicsTextItem * io = new QGraphicsTextItem;
     io->setPos(x,y);
     QFont titleFont("cosmic sans",10, QFont::Bold);
@@ -106,7 +117,7 @@ void statistika::printImeIgraca(QString ime, int x, int y){
     io->setPlainText(ime);
 
    scene->addItem(io);
-
+}
 }
 
 statistika::~statistika()
@@ -120,12 +131,10 @@ statistika::~statistika()
 //PRIKAZ SCENE I LOPTICA NA TERENU
 int statistika::on_pushButton_3_clicked()
 {
-/*
-if(Popunjeno.size()==4){
+qDebug()<<Popunjeno.size()<<endl;
+if(Popunjeno.size()>0){
 
     scene = new QGraphicsScene();
-
-
    QGraphicsView* view = new QGraphicsView(scene);
 
 
@@ -274,97 +283,11 @@ if(Popunjeno.size()==4){
 
     view->show();
 
-//LOPTICE I REZULTAT
-QList<QString>prviIgrac=getPoeniPrviIgrac();
-  iscrtajLoptice(prviIgrac,320,30,15);
 
-QList<QString>drugiIgrac=getPoeniDrugiIgrac();
-  iscrtajLoptice(drugiIgrac,530,30,15);
-  QList<QString>treciIgrac=getPoeniTreciIgrac();
-    iscrtajLoptice(treciIgrac,300,610,15);
-
-  QList<QString>cetvrtiIgrac=getPoeniCetvrtiIgrac();
-    iscrtajLoptice(cetvrtiIgrac,580,610,15);
-
-//SETOVI REZULTAT
-int setoviTim1=0;
-int setoviTim2=0;
-
-//Ispisivanje i proracun gemova, poena, setova
-for(int i=0;i<3;i++){
-int gemIgrac1=prviIgrac[i].toInt();
-int gemIgrac2=drugiIgrac[i].toInt();
-int gemIgrac1Igrac2=(gemIgrac1+gemIgrac2)/4;
-int gemIgrac3=treciIgrac[i].toInt();
-int gemIgrac4=cetvrtiIgrac[i].toInt();
-int gemIgrac3Igrac4=(gemIgrac3+gemIgrac4)/4;
-if(gemIgrac1Igrac2==6){
-  setoviTim1++;
-
-  if(i==0){
-  QString st1=QString::number(gemIgrac1Igrac2);
-  printImeIgraca(st1,760,40);
-  QString stt1=QString::number(gemIgrac3Igrac4);
-  printImeIgraca(stt1,760,60);
-
-}
-
-  if(i==1){
-  QString st1=QString::number(gemIgrac1Igrac2);
-  printImeIgraca(st1,90,40);
-  QString stt1=QString::number(gemIgrac3Igrac4);
-  printImeIgraca(stt1,90,60);
-
-}
-
-  if(i==2){
-  QString st1=QString::number(gemIgrac1Igrac2);
-  printImeIgraca(st1,110,40);
-  QString stt1=QString::number(gemIgrac3Igrac4);
-  printImeIgraca(stt1,110,60);
-}
-
-}
-
-//GEMOVI
-if(gemIgrac3Igrac4==6){
-      setoviTim2++;
-    if(i==0){
-
-  QString stt1=QString::number(gemIgrac1Igrac2);
-  printImeIgraca(stt1,300,300);
-  QString st2=QString::number(gemIgrac3Igrac4);
-  printImeIgraca(st2,320,300);
-  printImeIgraca(QString::number(setoviTim1),300,320);
-  printImeIgraca(QString::number(setoviTim2),320,320);
-}
-
-     if(i==1){
-
-  QString stt1=QString::number(gemIgrac1Igrac2);
-  printImeIgraca(stt1,90,40);
-  QString st2=QString::number(gemIgrac3Igrac4);
-  printImeIgraca(st2,90,60);
-
-}
-
-  if(i==2){
-
-  QString stt1=QString::number(gemIgrac1Igrac2);
-  printImeIgraca(stt1,380,300);
-  QString st2=QString::number(gemIgrac3Igrac4);
-  printImeIgraca(st2,400,300);
-  printImeIgraca(QString::number(setoviTim1),380,320);
-  printImeIgraca(QString::number(setoviTim2),400,320);
-}
-
-}
-
-}
 
 //KRAJNJI REZULTAT
-  printImeIgraca(QString::number(setoviTim1),770,40);
-  printImeIgraca(QString::number(setoviTim2),770,60);
+//  printImeIgraca(QString::number(setoviTim1),770,40);
+ // printImeIgraca(QString::number(setoviTim2),770,60);
 
 
 
@@ -372,49 +295,58 @@ if(gemIgrac3Igrac4==6){
 if(fajl==0){  //Ne cita se iz fajla vec se podaci kupe iz input fielda
   igraciZaTeren=getIgrace();
 }
+
+
 //istu funkciju za ispisivnje imena na sceni koristimo i za ispisivanje naziva tima i godina
+
+/* PRVI TIM */
 QString ime1=igraciZaTeren[0].getIme();
-QString ime2=igraciZaTeren[1].getIme();
+/*QString ime2=igraciZaTeren[1].getIme();
 QString ime3=igraciZaTeren[2].getIme();
 QString ime4=igraciZaTeren[3].getIme();
+QString ime5=igraciZaTeren[4].getIme();
+QString ime6=igraciZaTeren[5].getIme();
+QString ime7=igraciZaTeren[6].getIme();*/
+int i=0;
+/*for(i;i<7;i++){
+    qDebug()<<igraciZaTeren[i].getIme()<<endl;
+}*/
 
-QString ime5=igraciZaTeren[0].getIme();
-printImeIgraca(ime5,260,30);
-QString ime6=igraciZaTeren[1].getIme();
-printImeIgraca(ime6,670,30);
-QString ime7=igraciZaTeren[2].getIme();
-printImeIgraca(ime7,230,610);
-QString ime8=igraciZaTeren[3].getIme();
-printImeIgraca(ime8,730,610);
 
-QString tim1=igraciZaTeren[0].getTim();
-printImeIgraca(tim1,260,45);
-QString tim2=igraciZaTeren[1].getTim();
-printImeIgraca(tim2,670,45);
-QString tim3=igraciZaTeren[2].getTim();
-printImeIgraca(tim3,230,625);
-QString tim4=igraciZaTeren[3].getTim();
-printImeIgraca(tim4,730,625);
+printImeIgraca(ime1,260,30);
+/*
+printImeIgraca(ime1,360,116);
+printImeIgraca(ime2,560,116);
+printImeIgraca(ime3,349,470);
+printImeIgraca(ime4,600,470);
+printImeIgraca(ime5,600,470);
+printImeIgraca(ime6,600,470);
+printImeIgraca(ime7,600,470);*/
 
-QString godine1=igraciZaTeren[0].getGodine();
-printImeIgraca(godine1,260,60);
-QString godine2=igraciZaTeren[1].getGodine();
-printImeIgraca(godine2,670,60);
-QString godine3=igraciZaTeren[2].getGodine();
-printImeIgraca(godine3,230,640);
-QString godine4=igraciZaTeren[3].getGodine();
-printImeIgraca(godine4,730,640);
+
+
+/* Drugi Tim */
+//QString ime8=igraciZaTeren[7].getIme();
+/*QString ime9=igraciZaTeren[8].getIme();
+QString ime3=igraciZaTeren[9].getIme();
+QString ime4=igraciZaTeren[10].getIme();
+QString ime5=igraciZaTeren[11].getIme();
+QString ime6=igraciZaTeren[12].getIme();
+QString ime7=igraciZaTeren[13].getIme();*/
+//printImeIgraca(ime8,500,500);
+/*printImeIgraca(ime1,360,116);
+printImeIgraca(ime2,560,116);
+printImeIgraca(ime3,349,470);
+printImeIgraca(ime4,600,470);
+printImeIgraca(ime5,600,470);
+printImeIgraca(ime6,600,470);
+printImeIgraca(ime7,600,470);*/
 
 //DATUM
 QDate datum=getDatum();
 QString datumString= datum.toString("dd.MM.yyyy");
 printImeIgraca(datumString, 20, 10);
 
-//PRINT IME IGRAČA
-printImeIgraca(ime1,360,116);
-printImeIgraca(ime2,560,116);
-printImeIgraca(ime3,349,470);
-printImeIgraca(ime4,600,470);
 
 QString fileName = QFileDialog::getSaveFileName(this, "Save Scene", "", "Image (*.png)");
 QPixmap pixMap = QPixmap::grabWidget(view);
@@ -426,7 +358,7 @@ else {
     QMessageBox :: information(this, "PAŽNJA","Nije sve popunjeno \nPopunite prazna polja");
 }
 
-*/
+
 }
 
 //POENI
@@ -536,6 +468,7 @@ void statistika::on_pushButton_2_clicked()
     podaci podaci;
     QString name= ui->comboBox->currentText();
     if(name!="") {
+        Popunjeno.push_back(1);
     podaci.setPodaciIme(name,"Tim1");
        podaci.setModal(true);
        podaci.exec();
@@ -549,6 +482,7 @@ void statistika::on_pushButton_4_clicked()
     podaci podaci;
     QString name= ui->comboBox_2->currentText();
     if(name!="") {
+        Popunjeno.push_back(1);
     podaci.setPodaciIme(name,"Tim1");
        podaci.setModal(true);
        podaci.exec();
@@ -562,6 +496,7 @@ void statistika::on_pushButton_5_clicked()
     podaci podaci;
     QString name= ui->comboBox_3->currentText();
     if(name!="") {
+        Popunjeno.push_back(1);
     podaci.setPodaciIme(name,"Tim1");
        podaci.setModal(true);
        podaci.exec();
@@ -575,6 +510,7 @@ void statistika::on_pushButton_6_clicked()
     podaci podaci;
     QString name= ui->comboBox_4->currentText();
     if(name!="") {
+        Popunjeno.push_back(1);
     podaci.setPodaciIme(name,"Tim1");
        podaci.setModal(true);
        podaci.exec();
@@ -590,6 +526,7 @@ void statistika::on_pushButton_7_clicked()
     podaci podaci;
     QString name= ui->comboBox_5->currentText();
     if(name!="") {
+        Popunjeno.push_back(1);
     podaci.setPodaciIme(name,"Tim1");
        podaci.setModal(true);
        podaci.exec();
@@ -603,8 +540,9 @@ void statistika::on_pushButton_7_clicked()
 void statistika::on_pushButton_8_clicked()
 {
     podaci podaci;
-    QString name= ui->comboBox_6->currentText();
+    QString name= ui->comboBox_5->currentText();
     if(name!="") {
+        Popunjeno.push_back(1);
     podaci.setPodaciIme(name,"Tim1");
        podaci.setModal(true);
        podaci.exec();
@@ -619,6 +557,7 @@ void statistika::on_pushButton_9_clicked()
     podaci podaci;
     QString name= ui->comboBox_7->currentText();
     if(name!="") {
+        Popunjeno.push_back(1);
     podaci.setPodaciIme(name,"Tim1");
        podaci.setModal(true);
        podaci.exec();
@@ -628,11 +567,128 @@ void statistika::on_pushButton_9_clicked()
 
 }
 
+
+void statistika::on_pushButton_10_clicked()
+{
+    podaci podaci;
+    QString name= ui->comboBox_9->currentText();
+    if(name!="") {
+        Popunjeno.push_back(1);
+    podaci.setPodaciIme(name,"Tim2");
+       podaci.setModal(true);
+       podaci.exec();
+    } else {
+           QMessageBox::warning(this,"Info","Niste odabrali igrača");
+   }
+
+}
+
+
+void statistika::on_pushButton_11_clicked()
+{
+    podaci podaci;
+    QString name= ui->comboBox_8->currentText();
+    if(name!="") {
+        Popunjeno.push_back(1);
+    podaci.setPodaciIme(name,"Tim2");
+       podaci.setModal(true);
+       podaci.exec();
+    } else {
+           QMessageBox::warning(this,"Info","Niste odabrali igrača");
+   }
+
+}
+
+
+void statistika::on_pushButton_12_clicked()
+{
+    podaci podaci;
+    QString name= ui->comboBox_12->currentText();
+    if(name!="") {
+        Popunjeno.push_back(1);
+    podaci.setPodaciIme(name,"Tim2");
+       podaci.setModal(true);
+       podaci.exec();
+    } else {
+           QMessageBox::warning(this,"Info","Niste odabrali igrača");
+   }
+}
+
+void statistika::on_pushButton_13_clicked()
+{
+    podaci podaci;
+    QString name= ui->comboBox_6->currentText();
+    if(name!="") {
+        Popunjeno.push_back(1);
+    podaci.setPodaciIme(name,"Tim2");
+       podaci.setModal(true);
+       podaci.exec();
+    } else {
+           QMessageBox::warning(this,"Info","Niste odabrali igrača");
+   }
+}
+
+void statistika::on_pushButton_14_clicked()
+{
+    podaci podaci;
+    QString name= ui->comboBox_10->currentText();
+    if(name!="") {
+        Popunjeno.push_back(1);
+    podaci.setPodaciIme(name,"Tim2");
+       podaci.setModal(true);
+       podaci.exec();
+    } else {
+           QMessageBox::warning(this,"Info","Niste odabrali igrača");
+   }
+}
+
+void statistika::on_pushButton_15_clicked()
+{
+    podaci podaci;
+    QString name= ui->comboBox_13->currentText();
+    if(name!="") {
+        Popunjeno.push_back(1);
+    podaci.setPodaciIme(name,"Tim2");
+       podaci.setModal(true);
+       podaci.exec();
+    } else {
+           QMessageBox::warning(this,"Info","Niste odabrali igrača");
+   }
+}
+
+void statistika::on_pushButton_16_clicked()
+{
+    podaci podaci;
+    QString name= ui->comboBox_11->currentText();
+    if(name!="") {
+        Popunjeno.push_back(1);
+    podaci.setPodaciIme(name,"Tim2");
+       podaci.setModal(true);
+       podaci.exec();
+    } else {
+           QMessageBox::warning(this,"Info","Niste odabrali igrača");
+   }
+}
+
+void statistika::on_pushButton_17_clicked()
+{
+    podaci podaci;
+    QString name= ui->comboBox_14->currentText();
+    if(name!="") {
+        Popunjeno.push_back(1);
+    podaci.setPodaciIme(name,"Tim2");
+       podaci.setModal(true);
+       podaci.exec();
+    } else {
+           QMessageBox::warning(this,"Info","Niste odabrali igrača");
+   }
+}
+
 void statistika::ucitajDijalogIgrace(QList<igrac> a){
     podaci podaci;
     QString name= ui->comboBox_5->currentText();
     if(name!="") {
-    podaci.setPodaciIme(name,"Tim1");
+    podaci.setPodaciIme(name,"Tim2");
        podaci.setModal(true);
        podaci.exec();
     } else {
@@ -643,14 +699,10 @@ void statistika::ucitajDijalogIgrace(QList<igrac> a){
 //OTVARA FILE DIALOG
 void statistika::on_pushButton_clicked()
 {
-    /*QList<igrac>probni;
-    QString Fileime=QFileDialog::getOpenFileName(
-                this,
-                tr("Open File"),
-                "C://",
-                "All files(*.*);;Text File (*.txt)"
-                );
-   if(!Fileime.isEmpty()){
+    QList<igrac>probni;
+    QString Fileime=QFileDialog::getOpenFileName(this,tr("Open File"),"C://","All files(*.*);;Text File (*.txt)");
+   qDebug()<<Fileime<<endl;
+    if(!Fileime.isEmpty()){
 fajl=1;//setujemo varijablu fajl=1 ako u fajlu ima podataka te ce se podaci na sceni ucitavati iz fajla
   probni=procitajStatistiku(Fileime); //parsira sve podatke iz fajla ipripremi ih u listu igraca
 
@@ -658,7 +710,7 @@ fajl=1;//setujemo varijablu fajl=1 ako u fajlu ima podataka te ce se podaci na s
   QMessageBox::information(this,"File Name",Fileime);
 igraciZaTeren=probni;
 
-   }*/
+   }
 }
 
 
@@ -683,11 +735,12 @@ QList<igrac> procitajStatistiku(QString nazivFajla){
 
         QStringList info=line.split('|');
 
-     //   igrac temp(info[0].replace("Ime:",""),info[1].replace("Naziv tima:",""),info[2].replace("Godine:",""),info[3],info[4],info[5],info[6]);
+      igrac temp(info[0].replace("Ime:",""),info[1].replace("Naziv tima:",""),info[2].replace("Godine:",""),info[3].replace("Datum:",""),info[4].replace("Gol:",""));
+qDebug()<<info[0]<<endl;
 
 
-   //  ListaIgracaFajl.push_back(temp);
-        // Popunjeno.push_back(1);
+     ListaIgracaFajl.push_back(temp);
+         Popunjeno.push_back(1);
     }
 } file.close();
     return ListaIgracaFajl;

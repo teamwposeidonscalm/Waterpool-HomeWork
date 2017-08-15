@@ -72,10 +72,23 @@ void podaci::on_save_clicked()
     QString ime = ui->namePlayer->text();
     QString gol = ui->lineEdit_2->text();
     QString godine = ui->lineEdit_3->text();
+    QString tim= ui->timName->text();
       QDate datum=getDatum();
    QString datumString= datum.toString("dd.MM.yyyy");
-ZaTeren.push_back(igrac(ime,"tim",godine,datumString, gol));
+
+
+   if (file.open(QIODevice::ReadWrite | QIODevice::Text | QIODevice::Append) )
+   {
+   QTextStream stream(&file);
+//Ubacuje podatke u tekstualni fajl
+   stream <<"Ime:" + ime + "|" "Naziv tima:" + tim + "|"   "Godine:" + godine + "|"  "Datum:" + datumString+"|" "Gol:"+ gol+ "|"<<endl;
+   QMessageBox::information(this,"Info","Vaši podaci su  snimljeni u fajl!");
+
+}
+
+ZaTeren.push_back(igrac(ime,tim,godine,datumString, gol));
 //Vrsi konvertovanje dohvacenog datuma iz tipa QDate u QString
+
 
 
     QMessageBox MessageBox;
@@ -89,11 +102,10 @@ ZaTeren.push_back(igrac(ime,"tim",godine,datumString, gol));
     if (MessageBox.clickedButton()==otvoriFajl) {
         QDesktopServices::openUrl(QUrl("savePodaci.txt", QUrl::TolerantMode));
 }
-   /* ime.clear();
-    naziv_tima.clear();
+    ime.clear();
     godine.clear();
     datumString.clear();
-*/
+
     close();
     }
 
