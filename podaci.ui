@@ -158,7 +158,7 @@
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>290</y>
+     <y>310</y>
      <width>47</width>
      <height>13</height>
     </rect>
@@ -171,13 +171,36 @@
    <property name="geometry">
     <rect>
      <x>220</x>
-     <y>290</y>
+     <y>310</y>
      <width>47</width>
      <height>13</height>
     </rect>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>280</y>
+     <width>101</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>BROJ ASISTENCIJA</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_br_as">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>280</y>
+     <width>101</width>
+     <height>20</height>
+    </rect>
    </property>
   </widget>
  </widget>

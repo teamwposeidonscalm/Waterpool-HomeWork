@@ -284,63 +284,46 @@ if(Popunjeno.size()>0){
     view->show();
 
 
-
-//KRAJNJI REZULTAT
-//  printImeIgraca(QString::number(setoviTim1),770,40);
- // printImeIgraca(QString::number(setoviTim2),770,60);
-
-
-
 //IME IGRAČA
 if(fajl==0){  //Ne cita se iz fajla vec se podaci kupe iz input fielda
   igraciZaTeren=getIgrace();
 }
 
-
-//istu funkciju za ispisivnje imena na sceni koristimo i za ispisivanje naziva tima i godina
-
 /* PRVI TIM */
-QString ime1=igraciZaTeren[0].getIme();
-/*QString ime2=igraciZaTeren[1].getIme();
-QString ime3=igraciZaTeren[2].getIme();
-QString ime4=igraciZaTeren[3].getIme();
-QString ime5=igraciZaTeren[4].getIme();
-QString ime6=igraciZaTeren[5].getIme();
-QString ime7=igraciZaTeren[6].getIme();*/
+
 int i=0;
-/*for(i;i<7;i++){
+for(i;i<igraciZaTeren.size();i++){
     qDebug()<<igraciZaTeren[i].getIme()<<endl;
-}*/
+      qDebug()<<igraciZaTeren[i].getGol()<<endl;
+       qDebug()<<igraciZaTeren[i].getGodine()<<endl;
+       qDebug()<<igraciZaTeren[i].getBrAsistencija()<<endl;
+        qDebug()<<igraciZaTeren[i].getTim()<<endl;
+        if(i==0){
+            /* Igrac 1 tim 1 prvi red*/
+            printImeIgraca(igraciZaTeren[i].getIme(),260,30);
+            iscrtajGol(igraciZaTeren[i].getGol().toInt(),270,60);// pozicije x ,y
+            iscrtajAsistenciju(igraciZaTeren[i].getBrAsistencija().toInt(),270,80);//pozicije x y
+        }
+
+        if(i>0 && i<=3){
+            /* Igrac 2-4 tim 1 drugi red */
+            printImeIgraca(igraciZaTeren[i].getIme(),110+(i*120),100);
+            iscrtajGol(igraciZaTeren[i].getGol().toInt(),160+(i*80),130);// pozicije x ,y
+            iscrtajAsistenciju(igraciZaTeren[i].getBrAsistencija().toInt(),160+(i*80),150);//pozicije x y
+        }
+        if(i>3 && i<=7){
+            /* Igrac 4-7 tim 1  treci red*/
+            printImeIgraca(igraciZaTeren[i].getIme(),100+((i-3)*120),220);
+            iscrtajGol(igraciZaTeren[i].getGol().toInt(),80+((i-3)*130),250);// pozicije x ,y
+            iscrtajAsistenciju(igraciZaTeren[i].getBrAsistencija().toInt(),80+((i-3)*130),260);//pozicije x y
+        }
 
 
-printImeIgraca(ime1,260,30);
-/*
-printImeIgraca(ime1,360,116);
-printImeIgraca(ime2,560,116);
-printImeIgraca(ime3,349,470);
-printImeIgraca(ime4,600,470);
-printImeIgraca(ime5,600,470);
-printImeIgraca(ime6,600,470);
-printImeIgraca(ime7,600,470);*/
 
 
+}
 
-/* Drugi Tim */
-//QString ime8=igraciZaTeren[7].getIme();
-/*QString ime9=igraciZaTeren[8].getIme();
-QString ime3=igraciZaTeren[9].getIme();
-QString ime4=igraciZaTeren[10].getIme();
-QString ime5=igraciZaTeren[11].getIme();
-QString ime6=igraciZaTeren[12].getIme();
-QString ime7=igraciZaTeren[13].getIme();*/
-//printImeIgraca(ime8,500,500);
-/*printImeIgraca(ime1,360,116);
-printImeIgraca(ime2,560,116);
-printImeIgraca(ime3,349,470);
-printImeIgraca(ime4,600,470);
-printImeIgraca(ime5,600,470);
-printImeIgraca(ime6,600,470);
-printImeIgraca(ime7,600,470);*/
+
 
 //DATUM
 QDate datum=getDatum();
@@ -361,58 +344,6 @@ else {
 
 }
 
-//POENI
-QList<QString> statistika::getPoeniPrviIgrac(){
-//metod za dohvatanje poena iz input fielda i smjestanje u listu
-    QList<QString>PoeniPrviIgrac;
-/**
-QString poen=ui->prviSetIgrac1->text();
-PoeniPrviIgrac.push_back(poen);
-poen=ui->drugiSetIgrac1->text();
-PoeniPrviIgrac.push_back(poen);
-poen=ui->treciSetIgrac1->text();
-PoeniPrviIgrac.push_back(poen);*/
-return PoeniPrviIgrac;
-}
-
-
-QList<QString> statistika::getPoeniDrugiIgrac(){
-    QList<QString>PoeniDrugiIgrac;
-    /*
-QString poen=ui->prviSetIgrac2->text();
-PoeniDrugiIgrac.push_back(poen);
-poen=ui->drugiSetIgrac2->text();
-PoeniDrugiIgrac.push_back(poen);
-poen=ui->treciSetIgrac2->text();
-PoeniDrugiIgrac.push_back(poen);*/
-return PoeniDrugiIgrac;
-}
-
-QList<QString> statistika::getPoeniTreciIgrac(){
-    QList<QString>PoeniTreciIgrac;
-    /*
-QString poen=ui->prviSetIgrac3->text();
-PoeniTreciIgrac.push_back(poen);
-poen=ui->drugiSetIgrac3->text();
-PoeniTreciIgrac.push_back(poen);
-poen=ui->treciSetIgrac3->text();
-PoeniTreciIgrac.push_back(poen);*/
-return PoeniTreciIgrac;
-
-}
-
-QList<QString> statistika::getPoeniCetvrtiIgrac(){
-      datumMeca=ui->mojDate->date();
-    QList<QString>PoeniCetvrtiIgrac;
-    /*
-QString poen=ui->prviSetIgrac4->text();
-PoeniCetvrtiIgrac.push_back(poen);
-poen=ui->drugiSetIgrac4->text();
-PoeniCetvrtiIgrac.push_back(poen);
-poen=ui->treciSetIgrac4->text();
-PoeniCetvrtiIgrac.push_back(poen);*/
-return PoeniCetvrtiIgrac;
-}
 
 //IME NA DRESU
 QString statistika::getImeIgrac1(){
@@ -432,37 +363,33 @@ QString statistika::getImeIgrac4(){
 }
 
 //ISCRTAVANJE LOPTICA
-void statistika::iscrtajLoptice(QList<QString>prviset, int x, int y, int z){
+void statistika::iscrtajGol(int brPoena,int x, int y){
 
-    for(int t=0;t<3;t++){
-
- QGraphicsPixmapItem* sl2;
-
-//Priprema broja loptica za isrtavanje na scenu u zavisnosi od broja poenaa
-QString poeni=prviset[t];
-int p=poeni.toInt();
-//4 poena=1 loptica na sceni
-p=p/4;
-    for (int i=0; i<p; i++){
-if(t==0){ //prvi set
+    for(int t=0;t<brPoena;t++){
+    QGraphicsPixmapItem* sl2;
      sl2= new QGraphicsPixmapItem(QPixmap::fromImage(loptica1));
-}
-
-if(t==1){ //drugi set
-    sl2= new QGraphicsPixmapItem(QPixmap::fromImage(loptica2));
-}
-if(t==2){ //treci set
-    sl2= new QGraphicsPixmapItem(QPixmap::fromImage(loptica3));
-}
-    sl2->setPos(x+i*z,y+(t*17));
+    sl2->setPos(x+(t*17),y);
     scene->addItem(sl2);
-    }
-    }
 
+    }
     //ZATVARA NAKON STO SE KLIKNE DUGME POKRENI
     close();
-
 }
+
+
+void statistika::iscrtajAsistenciju(int brAsistencija,int x, int y){
+
+    for(int t=0;t<brAsistencija;t++){
+    QGraphicsPixmapItem* sl2;
+     sl2= new QGraphicsPixmapItem(QPixmap::fromImage(loptica2));
+    sl2->setPos(x+(t*17),y);
+    scene->addItem(sl2);
+
+    }
+    //ZATVARA NAKON STO SE KLIKNE DUGME POKRENI
+    close();
+}
+
 void statistika::on_pushButton_2_clicked()
 {
     podaci podaci;
@@ -706,7 +633,7 @@ void statistika::on_pushButton_clicked()
 fajl=1;//setujemo varijablu fajl=1 ako u fajlu ima podataka te ce se podaci na sceni ucitavati iz fajla
   probni=procitajStatistiku(Fileime); //parsira sve podatke iz fajla ipripremi ih u listu igraca
 
- // ucitajDijalogIgrace(probni); //sve podatke iz fajla popuni u input fieldovima
+  ucitajDijalogIgrace(probni); //sve podatke iz fajla popuni u input fieldovima
   QMessageBox::information(this,"File Name",Fileime);
 igraciZaTeren=probni;
 
@@ -735,8 +662,8 @@ QList<igrac> procitajStatistiku(QString nazivFajla){
 
         QStringList info=line.split('|');
 
-      igrac temp(info[0].replace("Ime:",""),info[1].replace("Naziv tima:",""),info[2].replace("Godine:",""),info[3].replace("Datum:",""),info[4].replace("Gol:",""));
-qDebug()<<info[0]<<endl;
+      igrac temp(info[0].replace("Ime:",""),info[1].replace("Naziv tima:",""),info[2].replace("Godine:",""),info[3].replace("Datum:",""),info[4].replace("Gol:",""),info[5].replace("Asistencija:",""));
+qDebug()<<info[0] <<" "+info[1]+" "+info[2]+" "+info[3]+" "+info[4]+" "+info[5]+" "<<endl;
 
 
      ListaIgracaFajl.push_back(temp);

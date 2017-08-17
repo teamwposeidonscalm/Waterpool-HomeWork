@@ -32,11 +32,7 @@ public:
 
 
 private slots:
-/* Kreirane 4 liste tipa int i u njima se smjestaju broj poena od svakog seta,+ za svakog igraca (podaci koji s uneseni input filed*/
-    QList<QString>getPoeniPrviIgrac();
-    QList<QString>getPoeniDrugiIgrac();
-    QList<QString>getPoeniTreciIgrac();
-    QList<QString>getPoeniCetvrtiIgrac();
+
 
 /*Funkcija za iscrtavanje label-a na scenu unosemo string koji hocemo da ispisemo i koordinate */
     void printImeIgraca(QString ime, int x, int y);
@@ -53,9 +49,8 @@ private slots:
 
 
 /* Funkcija za isrtavanje poena na sceni , proslijedimo joj listu poena i koordinate gdje ce isrtati */
-    void iscrtajLoptice(QList<QString>prviset,int x, int y,int z);
-
-
+void iscrtajGol(int brPoena,int x, int y);
+void iscrtajAsistenciju(int brAsistencija,int x, int y);
 
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();

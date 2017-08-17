@@ -72,6 +72,7 @@ void podaci::on_save_clicked()
     QString ime = ui->namePlayer->text();
     QString gol = ui->lineEdit_2->text();
     QString godine = ui->lineEdit_3->text();
+    QString brasistencija = ui->lineEdit_br_as->text();
     QString tim= ui->timName->text();
       QDate datum=getDatum();
    QString datumString= datum.toString("dd.MM.yyyy");
@@ -81,12 +82,12 @@ void podaci::on_save_clicked()
    {
    QTextStream stream(&file);
 //Ubacuje podatke u tekstualni fajl
-   stream <<"Ime:" + ime + "|" "Naziv tima:" + tim + "|"   "Godine:" + godine + "|"  "Datum:" + datumString+"|" "Gol:"+ gol+ "|"<<endl;
+   stream <<"Ime:" + ime + "|" "Naziv tima:" + tim + "|"   "Godine:" + godine + "|"  "Datum:" + datumString+"|" "Gol:"+ gol+ "|"+"Asistencija:"+brasistencija<<endl;
    QMessageBox::information(this,"Info","Vaši podaci su  snimljeni u fajl!");
 
 }
 
-ZaTeren.push_back(igrac(ime,tim,godine,datumString, gol));
+ZaTeren.push_back(igrac(ime,tim,godine,datumString, gol,brasistencija));
 //Vrsi konvertovanje dohvacenog datuma iz tipa QDate u QString
 
 
